@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Add Country</title>
+</head>
+
+<body>
+	<h1 id="page-title">Welcome to the Countries API!</h1>
+	<h2>Add a New Country</h2>
+	<form id="countryForm">
+		<label for="country">Country Name:</label>
+		<input type="text" id="country" name="country" required><br><br>
+
+		<label for="capital">Capital:</label>
+		<input type="text" id="capital" name="capital" required><br><br>
+
+		<label for="description">Description:</label>
+		<textarea id="description" name="description" required></textarea><br><br>
+
+		<label for="interestingFact">Interesting Fact:</label>
+		<textarea id="interestingFact" name="interestingFact" required></textarea><br><br>
+
+		<button type="submit">Add Country</button>
+	</form>
+
+	<h2>if you want to see the all countires add: /api/countries to the url path</h2>
+	<div id="countryInfo"></div>
+
+	<script>
+		document.getElementById('countryForm').addEventListener('submit', function (e) {
+			e.preventDefault();
+
+			const formData = {
+				country: document.getElementById('country').value,
+				capital: document.getElementById('capital').value,
+				description: document.getElementById('description').value,
+				interestingFact: document.getElementById('interestingFact').value
+			};
+
+			fetch('http://localhost:5000/api/countries', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(formData)
+				})
+				// get text in HTML
+				.then(response => response.text()) 
+				.then(html => {
+					const infoDiv = document.getElementById('countryInfo');
+					// HTML
+					infoDiv.innerHTML = html; 
+				})
+				.catch((error) => {
+					console.error('Error:', error);
+					alert('Failed to add country');
+				});
+		});
+	</script>
+</body>
+
+</html>

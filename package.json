@@ -1,0 +1,25 @@
+{
+	"name": "countriesapi",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start:dev": "nodemon ./src/index.js",
+		"start": "node ./src/index.js",
+		"test": "mocha"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.19.2",
+		"joi": "^17.13.1"
+	},
+	"devDependencies": {
+		"chai": "^5.1.1",
+		"mocha": "^10.4.0",
+		"nodemon": "^3.1.3",
+		"supertest": "^7.0.0"
+	}
+}
