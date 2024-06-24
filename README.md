@@ -7,7 +7,7 @@ The Countries API provides access to information about various countries, includ
 
 ## Base URL
 The base URL for accessing the API is:
-https://countries-api-forlm-2.onrender.com/
+https://countries-api-form.onrender.com/
 
 ## Endpoints:
 ### Get All Countries
